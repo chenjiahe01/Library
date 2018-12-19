@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>图书借阅系统</title>
+    <link rel="icon" href="picture/library_logo.png" type="image/x-icon"/>
+    <style media="screen">
+      .navs{
+        padding-top: 15px;
+        padding-left: 30px;
+        }
+      .input-group{
+        margin-left: 15px;
+      }
+      .check{
+        margin-top: 10px;margin-left: 20px;
+      }
+      .div_operate{
+        margin-left:-13px;
+      }
+      .div_sdept{
+        margin-left:-13px;
+      }
+    </style>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+  <body background="picture/background4.jpg" style="background-attachment: fixed;">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+        <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+     <div class="container">
+       <h1 class="page-header">图书借阅系统</h1>
+          <nav  class="navbar navbar-default navbar-inverse">   <!--  navbar-inverse 的作用，把导航栏的主题色设置为黑色,
+                                                                只提供了两种颜色，其他的颜色可以通过更改.container-fluid背景色改变-->
+            <div class="container-fluid">
+
+            <div id="blacknav" class="nav-header">
+               <a class="navbar-brand">
+                <span class="glyphicon glyphicon-book"> Library</span>
+               </a >
+               <button class="navbar-toggle collapsed"  data-toggle="collapse" data-target="#mynavbar">
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 </button>
+               </div>
+
+        <div id="mynavbar" class="collapse navbar-collapse">
+             <ul class="nav navbar-nav">
+               <li><a href="index.html">我要借书</a></li>
+               <li><a href="return.html">我要还书</a></li>
+               <li><a href="find.html">信息查询</a></li>
+               <li> <a href="http://jw.hzau.edu.cn/" target=“_blank”>教务系统</a></li>
+             </ul>
+             <ul class="nav navbar-nav navbar-right">
+               <li  class="active"><a href=""><span class="glyphicon glyphicon-user"></span></a></li>
+             </ul>
+
+           </div>
+
+           </div>
+
+         </nav>
+
+
+
+          <div class="rows">
+
+            <div class="col-md-2">
+              <ul class="nav nav-pills nav-stacked">
+                 <li>
+                    <a href="admin.html">图书管理</a>
+                 </li>
+
+                 <li class="active">
+                    <a href="">学生信息管理</a>
+                 </li>
+
+                 </ul>
+             </div>
+
+             <div class="col-md-10" style="background-color:white; opacity:0.65; border-radius:5px;">
+             <div class="row navs" >
+               <form action="#" method="get" autocomplete="off">
+                 <div class="row">
+                   <div class="col-md-5  col-md-offset-2">
+                 <form action="#" method="get" autocomplete="off">
+                   <h3>更改学生借书记录</h3>
+                   <div class="form-group" style="padding-top:2%;">
+                     <label for="">学号</label>
+                     <input type="text" name="S_Id_hand" class="form-control" placeholder="学号">
+                   </div>
+
+                   <div class="form-group">
+                     <label for="">书籍编号</label>
+                     <input type="text" name="b_Id_return_hand" class="form-control" placeholder="书名">
+                   </div>
+
+                     <div class='form-group col-md-5 div_operate'>
+                         <label for=''>操作:</label>
+                         <select name='operate' class='form-control'>
+                             <option value='rentbook'>借书</option>
+                             <option value='renturnbook'>还书</option>
+                         </select>
+                     </div>
+
+
+                   <div class="form-group " style="padding-bottom:5%; padding-top:5%;">
+                     <button type="submit" class="btn btn-warning btn-block" >确定</button>
+                   </div>
+
+                </form>
+
+                <form action="http://47.101.197.245:3000/addstu" method="post" autocomplete="off">
+                  <h3>添加学生</h3>
+                  <div class="form-group" style="padding-top:2%;">
+                    <label for="">学号</label>
+                    <input type="text" name="s_Id_add" class="form-control" placeholder="学号">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="">姓名</label>
+                    <input type="text" name="s_name_add" class="form-control" placeholder="数量">
+                  </div>
+ <div class="form-group">
+                    <label for="">住址</label>
+                    <input type="text" name="address" class="form-control" placeholder="住址">
+                  </div>
+
+                  <div class='form-group col-xs-5 div_sdept' >
+                    <label for=''>专业:</label>
+                    <select name='sdept_add'  class='form-control'>
+                      <option value='CS'>计算机科学与技术</option>
+                      <option value='BI'>生物信息</option>
+                      <option value='EC'>经济学</option>
+                      <option value='BA'>工商管理</option>
+                      <option value='ACC'>会计学</option>
+                      <option value='PA'>公共管理</option>
+                      <option value='BE'>商务英语</option>
+                      <option value='PS'>植物科学</option>
+                      <option value='SE'>种子工程</option>
+                      <option value='FS'>食品科学</option>
+                      <option value='AS'>动物科学</option>
+                    </select>
+                  </div>
+
+
+                  <div class="form-group " style="padding-bottom:5%; padding-top:5%;">
+                    <button type="submit" class="btn btn-info btn-block">添加</button>
+                  </div>
+
+               </form>
+                 </div>
+                 </div>
+
+
+              </form>
+             </div>
+           </div>
+    </div>
+  </div>
+
+  </body>
+</html>
